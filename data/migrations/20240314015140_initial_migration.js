@@ -5,23 +5,24 @@
 exports.up = (knex) => {
     return knex.schema
     .createTable('Recipes', (table) => {
-        table.increments('id').primary().notNullable();
+        table.increments('recipe_id').primary().notNullable();
         table.string('recipe_name').notNullable();
     })
     .createTable('Steps', (table) => {
-        table.increments('id').primary().notNullable();
+        table.increments('steps_id').primary().notNullable();
         table.integer('step_number').notNullable();
         table.string('step_instructions').notNullable();
-        table.integer('recipe_id').notNullable();
+        table.integer('recipe_id').references('recipe_id').inTable('Recipes').notNullable();
     })
     .createTable('Ingredients', (table) => {
-        table.integer('ingredient_id').primary().notNullable();
+        table.increments('ingredient_id').primary().notNullable();
         table.string('ingredient_name').notNullable();
         table.float('quantity').nullable();
     })
     .createTable("Steps to Ingredient ID's", (table) => {
-        table.integer('ingredient_id').notNullable();
-        table.integer('steps_id').notNullable();
+        table.increments('step_ingredient_id').notNullable();
+        table.integer('ingredient_id').references('ingredient_id').inTable('Ingredients').notNullable();
+        table.integer('steps_id').references('steps_id').inTable('Steps').notNullable();
     })
 };
 

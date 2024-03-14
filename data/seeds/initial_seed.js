@@ -9,17 +9,17 @@ exports.seed = async function(knex) {
   await knex('Steps').del()
   await knex('Recipes').del()
   await knex('Recipes').insert([
-    {id: 1, recipe_name: 'Sliced Bread'},
-    {id: 2, recipe_name: 'Brown Rice'},
-    {id: 3, recipe_name: 'A tomato'}
+    {recipe_id: 1, recipe_name: 'Sliced Bread'},
+    {recipe_id: 2, recipe_name: 'Brown Rice'},
+    {recipe_id: 3, recipe_name: 'A tomato'}
   ]);
   await knex('Steps').insert([
-    {id: 1, step_number: 1, step_instructions: "Grab bread and knife", recipe_id: 1},
-    {id: 2, step_number: 2, step_instructions: "Cut the bread with the knife", recipe_id: 1},
-    {id: 3, step_number: 1, step_instructions: "Pick a tomato", recipe_id: 3},
-    {id: 4, step_number: 1, step_instructions: "Dump water and rice into pot", recipe_id: 2},
-    {id: 5, step_number: 2, step_instructions: "Boil for 40 min", recipe_id: 2},
-    {id: 6, step_number: 3, step_instructions: "Season to your preference", recipe_id: 2},
+    {steps_id: 1, step_number: 1, step_instructions: "Grab bread and knife", recipe_id: 1},
+    {steps_id: 2, step_number: 2, step_instructions: "Cut the bread with the knife", recipe_id: 1},
+    {steps_id: 3, step_number: 1, step_instructions: "Pick a tomato", recipe_id: 3},
+    {steps_id: 4, step_number: 1, step_instructions: "Dump water and rice into pot", recipe_id: 2},
+    {steps_id: 5, step_number: 2, step_instructions: "Boil for 40 min", recipe_id: 2},
+    {steps_id: 6, step_number: 3, step_instructions: "Season to your preference", recipe_id: 2},
   ])
   await knex('Ingredients').insert([
     {ingredient_id: 1, ingredient_name: "Bread", quantity: 1},

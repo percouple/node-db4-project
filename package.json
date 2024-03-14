@@ -4,7 +4,8 @@
   "scripts": {
     "server": "nodemon index.js",
     "migrate": "knex migrate:latest",
-    "seed": "knex seed:run"
+    "seed": "knex seed:run",
+    "dbreset": "knex migrate:down && knex migrate:up && knex seed:run"
   },
   "main": "index.js",
   "repository": {
